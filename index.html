@@ -17,7 +17,9 @@
 <body>
   <header>
     <div class="container line-height-large">
-      <span class="font">&ThickSpace;Code Journal</span>
+      <div class="row padding-left">
+        <h3 class="font">Code Journal</h3>
+      </div>
     </div>
   </header>
   <main>
@@ -34,17 +36,17 @@
                 <div>
                   <label class="font line-height" for="title">Title</label>
                 </div>
-                <input class="full-width line-height" type="text" name="title" id="title">
+                <input class="full-width line-height" type="text" name="title" id="title" required>
                 <div class="padding-top">
                   <label class="font line-height" for="photo-url">Photo URL</label>
                 </div>
-                <input class="full-width line-height" type="url" name="photo-url" id="photo-url">
+                <input class="full-width line-height" type="url" name="photo-url" id="photo-url" required>
               </div>
               <div class="column-full">
                 <div>
                   <label class="font line-height" for="notes">Notes</label>
                 </div>
-                <textarea class="full-width" rows="10" id="notes"></textarea>
+                <textarea class="full-width" rows="10" id="notes" required></textarea>
               </div>
               <div class="column-full">
                 <button>SAVE</button>
