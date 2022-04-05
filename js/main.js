@@ -16,7 +16,7 @@ form.addEventListener('submit', function (event) {
   userInput.title = form.elements.title.value;
   userInput.url = form.elements.url.value;
   userInput.notes = form.elements.notes.value;
-  userInput.entryId = data.entries.length + 1;
+  userInput.entryId = data.nextEntryId;
   ++data.nextEntryId;
   data.entries.push(userInput);
   img.setAttribute('src', 'images/placeholder-image-square.jpg');

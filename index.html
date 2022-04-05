@@ -23,38 +23,36 @@
     </div>
   </header>
   <main>
-    <div class="height-full">
-      <div data-view="entry-form" class="container">
+    <div data-view="entry-form" class="container">
+      <div class="row">
         <h2 class="column-full header-spacing">New Entry</h2>
-        <div class="row">
-          <form>
-            <div class="row">
-              <div class="column-half">
-                <img class="padding-bottom" src="images/placeholder-image-square.jpg" alt="placeholder">
-              </div>
-              <div class="column-half">
-                <div>
-                  <label class="font line-height" for="title">Title</label>
-                </div>
-                <input class="full-width line-height" type="text" name="title" id="title" required>
-                <div class="padding-top">
-                  <label class="font line-height" for="photo-url">Photo URL</label>
-                </div>
-                <input class="full-width line-height" type="url" name="url" id="photo-url" required>
-              </div>
-              <div class="column-full">
-                <div>
-                  <label class="font line-height" for="notes">Notes</label>
-                </div>
-                <textarea class="full-width" rows="10" name="notes" id="notes" required></textarea>
-              </div>
-              <div class="column-full">
-                <button type="submit">SAVE</button>
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
+      <form>
+        <div class="row">
+          <div class="column-half">
+            <img class="padding-bottom" src="images/placeholder-image-square.jpg" alt="placeholder">
+          </div>
+          <div class="column-half">
+            <div>
+              <label class="font line-height" for="title">Title</label>
+            </div>
+            <input class="full-width line-height" type="text" name="title" id="title" required>
+            <div class="padding-top">
+              <label class="font line-height" for="photo-url">Photo URL</label>
+            </div>
+            <input class="full-width line-height" type="url" name="url" id="photo-url" required>
+          </div>
+          <div class="column-full">
+            <div>
+              <label class="font line-height" for="notes">Notes</label>
+            </div>
+            <textarea class="full-width" rows="10" name="notes" id="notes" required></textarea>
+          </div>
+          <div class="column-full">
+            <button type="submit">SAVE</button>
+          </div>
+        </div>
+      </form>
     </div>
   </main>
   <script src="js/data.js"></script>
