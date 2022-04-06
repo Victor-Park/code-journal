@@ -19,11 +19,12 @@
     <div class="container line-height-large">
       <div class="row padding-left">
         <h3 class="font">Code Journal</h3>
+        <h3 class="font padding-left"><button id="entry-button">Entries</button><h3>
       </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form" class="container">
+    <div data-view="entry-form" class="container hidden" id="form-container">
       <div class="row">
         <h2 class="column-full header-spacing">New Entry</h2>
       </div>
@@ -49,28 +50,17 @@
             <textarea class="full-width" rows="10" name="notes" id="notes" required></textarea>
           </div>
           <div class="column-full">
-            <button type="submit">SAVE</button>
+            <button class="purple-button" type="submit" id="save">SAVE</button>
           </div>
         </div>
       </form>
     </div>
-    <div data-view="entries" class="container">
-      <div class="row">
-        <div class="column-half">
-          <ul>
-            <li>
-              <img src="images/placeholder-image-square.jpg" alt="placeholder">
-            </li>
-          </ul>
-        </div>
-        <div class="column-half">
-          <ul>
-            <li>
-              <h3>Dummy</h3>
-              <p>Dummy</p>
-            </li>
-          </ul>
-        </div>
+    <div data-view="entries" class="container" id="entry-container">
+      <div class="row" id="entries">
+        <h2 class="header-padding">Entries</h2>
+        <button id="new-entry" class="purple-button">NEW</button>
+        <ul>
+        </ul>
       </div>
     </div>
   </main>
