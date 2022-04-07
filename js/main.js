@@ -24,7 +24,7 @@ form.addEventListener('submit', function (event) {
   $formContainer.className = 'container ' + 'hidden';
   $entryContainer.className = 'container';
   data.view = 'previous-entries';
-  document.location.reload(true);
+  $ul.prepend(returnDomTree(userInput));
 });
 
 function returnDomTree(entry) {
