@@ -35,21 +35,31 @@ function returnDomTree(entry) {
   var $h3 = document.createElement('h3');
   var $p = document.createElement('p');
   var $row = document.createElement('div');
+  var $icon = document.createElement('i');
+  var $titleRow = document.createElement('div');
+  var $notesRow = document.createElement('div');
+  $notesRow.setAttribute('class', 'row');
+  $titleRow.setAttribute('class', 'row flex');
   $row.setAttribute('class', 'row');
   imgColumnHalf.setAttribute('class', 'column-half');
   textColumnHalf.setAttribute('class', 'column-half');
   $img.setAttribute('src', entry.url);
+  $icon.setAttribute('class', 'fas fa-pen fa-xl');
+  $h3.setAttribute('class', 'inline');
+  $li.setAttribute('data-entry-id', entry.entryId);
   $h3.textContent = entry.title;
   $p.textContent = entry.notes;
   $li.appendChild($row);
   $row.appendChild(imgColumnHalf);
   $row.appendChild(textColumnHalf);
   imgColumnHalf.appendChild($img);
-  textColumnHalf.appendChild($h3);
-  textColumnHalf.appendChild($p);
+  textColumnHalf.appendChild($titleRow);
+  $titleRow.appendChild($h3);
+  $titleRow.appendChild($icon);
+  $notesRow.appendChild($p);
+  textColumnHalf.appendChild($notesRow);
   return $li;
 }
-
 var $ul = document.querySelector('ul');
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -84,5 +94,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
   } else {
     $entryContainer.className = 'container ' + 'hidden';
     $formContainer.className = 'container';
+  }
+});
+
+$ul.addEventListener('click', function (event) {
+  if (event.target.matches('i')) {
+    $entryContainer.className = 'container ' + 'hidden';
+    $formContainer.className = 'container';
+    var $closest = event.target.closest('li');
+    for (var i = 0; i < data.entries.length; i++) {
+      if ($closest.getAttribute('data-entry-id') === data.entries[i].entryId.toString()) {
+        var title = document.querySelector('#title');
+        var notes = document.querySelector('#notes');
+        data.editing = data.entries[i];
+        img.src = data.editing.url;
+        url.textContent = data.editing.url;
+        title.textContent = data.editing.title;
+        notes.textContent = data.editing.notes;
+        notes.write();
+      }
+    }
   }
 });
