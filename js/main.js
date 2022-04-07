@@ -23,7 +23,7 @@ form.addEventListener('submit', function (event) {
   form.reset();
   $formContainer.className = 'container ' + 'hidden';
   $entryContainer.className = 'container';
-  data.view = 'previous-entries';
+  data.view = 'entries';
   $ul.prepend(returnDomTree(userInput));
 });
 
@@ -67,7 +67,7 @@ var $newEntryButton = document.querySelector('#new-entry');
 $entryButton.addEventListener('click', function click() {
   $formContainer.className = 'container ' + 'hidden';
   $entryContainer.className = 'container';
-  data.view = 'previous-entries';
+  data.view = 'entries';
 }
 );
 
@@ -78,7 +78,7 @@ $newEntryButton.addEventListener('click', function click(event) {
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  if (data.view === 'previous-entries') {
+  if (data.view === 'entries') {
     $formContainer.className = 'container ' + 'hidden';
     $entryContainer.className = 'container';
   } else {
