@@ -13,18 +13,35 @@ var form = document.querySelector('form');
 form.addEventListener('submit', function (event) {
   event.preventDefault();
   var userInput = {};
+  var li = document.querySelectorAll('li');
+  var ul = document.querySelector('ul');
   userInput.title = form.elements.title.value;
   userInput.url = form.elements.url.value;
   userInput.notes = form.elements.notes.value;
   userInput.entryId = data.nextEntryId;
-  ++data.nextEntryId;
-  data.entries.push(userInput);
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
   $formContainer.className = 'container ' + 'hidden';
   $entryContainer.className = 'container';
   data.view = 'entries';
-  $ul.prepend(returnDomTree(userInput));
+  if (data.editing === null) {
+    data.entries.push(userInput);
+    $ul.prepend(returnDomTree(userInput));
+    ++data.nextEntryId;
+  } else {
+    for (var i = 0; i < li.length; i++) {
+      if (data.editing.entryId.toString() === li[i].getAttribute('data-entry-id')) {
+        userInput.entryId = data.editing.entryId;
+        ul.replaceChild(returnDomTree(userInput), li[i]);
+      }
+    }
+    for (var j = 0; j < data.entries.length; j++) {
+      if (data.entries[j].entryId === data.editing.entryId) {
+        userInput.entryId = data.editing.entryId;
+        data.entries[j] = userInput;
+      }
+    }
+  }
 });
 
 function returnDomTree(entry) {
@@ -82,6 +99,11 @@ $entryButton.addEventListener('click', function click() {
 );
 
 $newEntryButton.addEventListener('click', function click(event) {
+  url.value = null;
+  title.value = null;
+  notes.textContent = '';
+  data.editing = null;
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryContainer.className = 'container ' + 'hidden';
   $formContainer.className = 'container';
   data.view = 'entry-form';
@@ -96,7 +118,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $formContainer.className = 'container';
   }
 });
-
+var title = document.querySelector('#title');
+var notes = document.querySelector('#notes');
 $ul.addEventListener('click', function (event) {
   if (event.target.matches('i')) {
     $entryContainer.className = 'container ' + 'hidden';
@@ -104,14 +127,11 @@ $ul.addEventListener('click', function (event) {
     var $closest = event.target.closest('li');
     for (var i = 0; i < data.entries.length; i++) {
       if ($closest.getAttribute('data-entry-id') === data.entries[i].entryId.toString()) {
-        var title = document.querySelector('#title');
-        var notes = document.querySelector('#notes');
+        img.src = data.entries[i].url;
+        url.value = data.entries[i].url;
+        title.value = data.entries[i].title;
+        notes.textContent = data.entries[i].notes;
         data.editing = data.entries[i];
-        img.src = data.editing.url;
-        url.textContent = data.editing.url;
-        title.textContent = data.editing.title;
-        notes.textContent = data.editing.notes;
-        notes.write();
       }
     }
   }
