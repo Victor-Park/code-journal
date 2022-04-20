@@ -55,6 +55,15 @@
   margin-bottom: 20px;
 }
 
+.inline {
+  display: inline-block;
+}
+
+.flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
 #entry-button {
   background: none;
   border-style: none;
@@ -79,6 +88,14 @@ h2 {
 }
 
 h3 {
+  font-family: sans-serif;
+  font-size: x-large;
+  margin: 5px;
+  font-weight: 1000;
+}
+
+p {
+  font-family: sans-serif;
   margin: 5px;
 }
 
