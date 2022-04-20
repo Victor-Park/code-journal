@@ -13,6 +13,10 @@
   flex-wrap: wrap;
 }
 
+.flex {
+  justify-content: space-between;
+}
+
 .column-full,
 .column-half {
   width: 100%;
@@ -20,7 +24,7 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 900px;
+    max-width: 750px;
   }
 
   .column-full,

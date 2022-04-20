@@ -15,6 +15,17 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="background-gray">
+  <div class="modal-off">
+    <div class="modal-content">
+      <div class="row">
+        <h3 class="confirmation">Are you sure you want to delete this entry?</h3>
+      </div>
+      <div class="row space-between">
+        <button class="cancel-button">CANCEL</button>
+        <button class="confirm-button">CONFIRM</button>
+      </div>
+    </div>
+  </div>
   <header>
     <div class="container line-height-large">
       <div class="row padding-left">
@@ -49,7 +60,8 @@
             </div>
             <textarea class="full-width" rows="10" name="notes" id="notes" required></textarea>
           </div>
-          <div class="column-full">
+          <div class="column-full space-between">
+            <button class="delete-button" id="delete">Delete Entry</button>
             <button class="purple-button" type="submit" id="save">SAVE</button>
           </div>
         </div>
@@ -57,8 +69,10 @@
     </div>
     <div data-view="entries" class="container" id="entry-container">
       <div class="row" id="entries">
-        <h2 class="header-padding">Entries</h2>
-        <button id="new-entry" class="purple-button">NEW</button>
+        <div class="column-full space-between">
+          <h2 class="header-padding">Entries</h2>
+          <button id="new-entry" class="purple-button">NEW</button>
+        </div>
         <ul>
         </ul>
       </div>
